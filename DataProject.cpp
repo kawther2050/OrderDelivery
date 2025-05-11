@@ -109,7 +109,7 @@ void viewNext()
 		cout << "\nThere is no orders yet.\n";
 	else //diplay front queue
 	{
-		cout << "\nNext order details:\n ";
+		cout << "\nNext order details:\n";
         cout << "Name: " << q.Q[q.front].name << "\n";
         cout << "ID: " << q.Q[q.front].id << "\n";
         cout << "Location: " << q.Q[q.front].location << "\n"; 
@@ -117,7 +117,7 @@ void viewNext()
 }
 
 // print rear of queue 
-void rear() 
+void viewLast() 
 { 
 	if (q.front == -1)   //check if queue is empty
 		cout << "\nThere is no orders yet.\n";
@@ -172,11 +172,11 @@ void search(int id){
 	}
 
 	if(found){
-		cout<<"The order has been found:\n\n";
-	    cout<<"Order: \nName: "<<searched.name<<"\nId: "<<searched.id<<"\nLocation: "<<searched.location<<"\n";
+		cout<<"The order has been found:\n";
+	    cout<<"Name: "<<searched.name<<"\nId: "<<searched.id<<"\nLocation: "<<searched.location<<"\n";
 		cout << "---------------------\n";
 	}else{
-		cout<<"The order was not found.\n";
+		cout<<"The order has not founded.\n";
 	}
 }
 void cancelOrder(int cancelId) {
@@ -204,7 +204,7 @@ void cancelOrder(int cancelId) {
             tempQueue.Q[tempQueue.rear] = q.Q[i];
         } else {
             found = true;
-            cout << "Order by " << q.Q[i].name << " (ID: " << cancelId << ") has been cancelled.\n";
+            cout << "Order by " << q.Q[i].name << " { ID: " << cancelId << " } has been cancelled.\n";
         }
 
         if (i == q.rear)
@@ -234,8 +234,8 @@ int main()
 		cout << "3. View next order.\n";
 		cout << "4. View last order\n";
 		cout << "5. Display the orders.\n";
-		cout << "6. Search\n";
-		cout << "7. Cancel order\n";
+		cout << "6. Search a specific order.\n";
+		cout << "7. Cancel an order\n";
 		cout << "8. Exit\n";
 		cout << "\nEnter your choice: ";
 		cin >> choice;
@@ -259,19 +259,19 @@ int main()
 				viewNext();
 				break;
 			case 4: // Call Rear Function
-				rear();
+				viewLast();
 				break;
 			case 5: // Call Display Function
 				display();
 				break;
 			case 6://Call the Search Function And Pass The Id to it
-			    cout<<"enter the id for the order you want to search: ";
+			    cout<<"Enter the id of the order that you want to find: ";
 				cin>>tempid;
 				search(tempid);
 				break;
 			case 7:
 				int cancelId;
-				cout<<"enter the id for the order you want to cancel: ";
+				cout<<"Enter the id of the order that you want to cancel: ";
 				cin>>cancelId;
 				cancelOrder(cancelId);
 				break;
